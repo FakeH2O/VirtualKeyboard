@@ -33,7 +33,7 @@ while True and choice=="1" or choice == "2":
     if choice=="1":
         count=keyboard.run(img,lmList,count,detector)
     else:
-        count=drum.run(frame=img,lmList=lmList,count=count)    
+        count=drum.run(img,lmList,count)    
     key=cv2.waitKey(1)
     
 

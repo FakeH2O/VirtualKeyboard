@@ -7,20 +7,20 @@ def play_sound(x,y):
     if 300 <= y <= 500:
         if x >= 60 and x <= 260:
           pyGamePlay('assets/drum sound/Floor-Tom-Drum-Hit.mp3')
-          print(1)
+          
 
         elif x >= 300 and x <= 500:
           pyGamePlay('assets/drum sound/Bass-Drum-Hit.mp3')
-          print(2)
+   
         elif x >= 780 and x <= 980:
           pyGamePlay('assets/drum sound/Hi-Hat-Closed-2.mp3')
-          print(3)
+  
         elif x >= 540 and x <= 740:
           pyGamePlay('assets/drum sound/Snare-Drum-Hit.mp3')
-          print(4)
+
         elif x >= 1020 and x <= 1220:
           pyGamePlay('assets/drum sound/Hi-Hat-Open-Hit.mp3')
-          print(5)
+
 
 
 blue = (255, 255, 0)
@@ -28,12 +28,12 @@ yellow = (0, 255, 255)
 red = (0, 0, 255)
 green = (0, 255, 0)
 temp = (255,0,255)
-FTD=cv.imread()
+
 color = [blue, yellow, red, green,temp]
 kernal = np.ones((5, 5), np.uint8)
 
 
-def run(frame,lmList,count,mode="hands"):
+def run(frame,lmList,count,mode="handsa"):
 
     x1 = 60
     x2 = x1 + 200
@@ -117,6 +117,18 @@ def run(frame,lmList,count,mode="hands"):
                   break
 
       except:
-          pass
-      play_sound(gx, gy)
-      play_sound(bx, by)
+          pass  
+ 
+      count+=1
+      if (count==0 or count>3 and count<6):
+        try:
+          play_sound(gx, gy)
+          play_sound(bx, by)
+          count=0
+        except Exception as e:
+          print(e)
+        if count>6:
+          count=0
+        
+        
+      return count
