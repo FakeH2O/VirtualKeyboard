@@ -29,7 +29,6 @@ while True and choice=="1" or choice == "2":
     img = detector.findHands(img, draw=True )
 
     lmList = detector.findPosition(img,draw=False)
-    # lmList1 = detector.findPosition(img, draw=False,handNo=1)
     if choice=="1":
         count=keyboard.run(img,lmList,count,detector)
     else:
