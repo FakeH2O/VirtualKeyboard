@@ -40,22 +40,12 @@ class handDetector():
                 lmList.append([id, cx, cy])
                 if draw:
                     cv2.circle(img, (cx, cy), 15, (255, 0, 255), cv2.FILLED)
+            
  
         return lmList
     
     def findDistance(self, p1, p2, img=None):
-        """
-        Find the distance between two landmarks based on their
-        index numbers.
-        :param p1: Point1
-        :param p2: Point2
-        :param img: Image to draw on.
-        :param draw: Flag to draw the output on the image.
-        :return: Distance between the points
-                 Image with output drawn
-                 Line information
-        """
-
+        
         x1, y1 = p1[1:]
         x2, y2 = p2[1:]
         cx, cy = (x1 + x2) // 2, (y1 + y2) // 2
